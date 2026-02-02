@@ -39,7 +39,8 @@ function Login() {
     };
 
     try{
-      const response = await axios.post('http://localhost:3000/auth/login', dadosCompletos)
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const response = await axios.post(`${API_URL}/auth/login`, dadosCompletos)
       const result = response.data
       console.log(result)
       if (result.status == "sucesso"){

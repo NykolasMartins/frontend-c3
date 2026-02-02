@@ -48,7 +48,8 @@ function NovaSenha() {
         const dadosCompletos = { ...data}
         const NovaSenha = { NovaSenha: dadosCompletos.senha}
         console.log(NovaSenha)
-        const response = await axios.post("http://localhost:3000/auth/atualizar_senha", NovaSenha, {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const response = await axios.post(`${API_URL}/auth/atualizar_senha`, NovaSenha, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }

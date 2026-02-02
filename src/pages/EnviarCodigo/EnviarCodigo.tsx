@@ -13,7 +13,8 @@ function EnviarCodigo(){
         const CodigoDigitado = {CodigoDigitado: code}
         const token = localStorage.getItem('tokenVerificaCodigo');
         try{
-            const response = await axios.post('http://localhost:3000/auth/verifica_codigo', CodigoDigitado, {
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+            const response = await axios.post(`${API_URL}/auth/verifica_codigo`, CodigoDigitado, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

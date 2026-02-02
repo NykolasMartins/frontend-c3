@@ -23,7 +23,8 @@ function App() {
 
     const loadUser = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/auth/principal', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      const response = await axios.get(`${API_URL}/auth/principal`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

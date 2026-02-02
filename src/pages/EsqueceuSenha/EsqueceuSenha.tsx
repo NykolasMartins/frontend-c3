@@ -41,7 +41,8 @@ function EsqueceuSenha() {
   async function onSubmit(data: FormSchema){
     try{
         const dadosCompletos = { ...data, marcado }
-        const response = await axios.post("http://localhost:3000/auth/esqueci_senha", dadosCompletos)
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const response = await axios.post(`${API_URL}/auth/esqueci_senha`, dadosCompletos)
         console.log(response.data)
         localStorage.setItem('tokenVerificaCodigo', response.data.token)
         navigate('/esqueceu-senha/enviar-codigo')
