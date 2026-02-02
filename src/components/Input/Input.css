@@ -1,0 +1,57 @@
+.Input{
+    color: #615110;
+    width: 100%;
+    display: flex;
+    padding: 16px 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 30px;
+    border: 2.2px solid #8b9aa7;
+    background: #FFFBF3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.Input:focus{
+    border-color: #515a61;
+    outline: none;
+    box-shadow: 0 0 5px rgba(138, 154, 167, 0.2);
+}
+
+.Input::placeholder{
+    color: #615110BF;
+}
+
+Input.error{
+    border-color: #E74C3C;
+}
+
+.grupoInput{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.grupoInput span{
+    color: #E74C3C;
+    font-size: 14px;
+}
+
+.grupoLabel{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    color: #615110;
+    font-weight: 550;
+}
+

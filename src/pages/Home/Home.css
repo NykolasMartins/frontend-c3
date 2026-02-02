@@ -1,0 +1,23 @@
+
+
+.Home{
+    width: 100%;
+}
+
+.homeTitle{
+    color: #897E51;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.homeTitle span{
+    color: #A3901A;
+}
+
+.logoCompleta{
+  max-width: 357px;  
+}

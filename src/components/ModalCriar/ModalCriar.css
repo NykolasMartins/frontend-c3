@@ -1,0 +1,150 @@
+.modal-overlay {
+  position: fixed; /* Fixa na tela, mesmo se rolar a página */
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;    /* 100% da largura da janela */
+  height: 100vh;   /* 100% da altura da janela */
+  height: 100dvh;
+  
+  background-color: rgba(0, 0, 0, 0.6); /* Preto com 60% de opacidade */
+  z-index: 1000;   /* Garante que fique na frente de TUDO no site */
+  
+  /* Centraliza a modal no meio da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Opcional: Efeito de desfoque (vidro fosco) */
+  backdrop-filter: blur(3px); 
+}
+
+
+
+.ModalCriar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    padding: 45px 75px;
+    align-items: center;
+    gap: 35px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    border: 2px solid #8A9AA7;
+    background: #FFF;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    top: auto;
+}
+
+
+
+.modal-card{
+    display: flex;
+    padding: 5px 10px;
+    height: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    align-self: stretch;
+    width: 180px;
+    border-radius: 5px;
+    border: 4px solid #9F8536;
+    border-radius: 10px;
+    transition: .2s;
+    cursor: pointer;
+}
+
+.modal-card:hover{
+    background-color: #9F8536;
+    color: #ffffff !important;
+    transform: translateY(-10px);
+}
+
+.modal-card:hover .modal-card-icon {
+    color: #ffffff !important; /* O ícone fica branco */
+
+    /* Tudo deve ficar dentro de um único filter */
+    filter: 
+        /* 1ª CAMADA (Mais próxima do ícone): Dourada */
+        drop-shadow(1.3px 0px 0px #9F8536) 
+        drop-shadow(-1.3px 0px 0px #9F8536)
+        drop-shadow(0px 1.3px 0px #9F8536) 
+        drop-shadow(0px -1.3px 0px #9F8536)
+
+        /* 2ª CAMADA (Em volta da dourada): Branca (Cor do Fundo) */
+        /* Como o drop-shadow acumula, aplicamos ele sobre o resultado anterior */
+        drop-shadow(2px 0px 0px #ffffff) 
+        drop-shadow(-2px 0px 0px #ffffff)
+        drop-shadow(0px 2px 0px #ffffff) 
+        drop-shadow(0px -2px 0px #ffffff);
+}
+
+
+.modal-card p{
+    font-size: 20px;
+    color: #9F8536;
+}
+.modal-card:hover p{
+    color: #ffffff;
+}
+
+.modal-content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 35px;
+
+}
+
+@media (max-width: 1024px){
+
+    .ModalCriar{
+        padding: 45px 55px;
+    }
+}
+
+
+@media (max-width: 768px){
+
+    .modal-card{
+        width: 150px;
+        height: 250px;
+    }
+
+    .ModalCriar{
+        padding: 45px 45px;
+    }
+
+    .modal-content{
+        gap: 20px;
+    }
+}
+
+@media (max-width: 630px){
+
+    .modal-card{
+        flex-direction: row;
+        width: 100%;
+        height: 100px;
+    }
+
+    .modal-card:hover{
+        transform: translateY(0);
+        transform: translateX(10px);
+
+    }
+
+    .modal-content{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px){
+    .ModalCriar{
+        top: 10vh;
+    }
+}

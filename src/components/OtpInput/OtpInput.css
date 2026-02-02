@@ -1,0 +1,40 @@
+.otp-container {
+  display: flex;
+  gap: 12px; /* Espaço entre as caixinhas */
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.otp-field {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #cbd5e1;
+  border-radius: 8px;
+  color: #3D3468; /* Roxo C3 */
+  background-color: white;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Quando o usuário clica */
+.otp-field:focus {
+  border-color: #3D3468;
+  box-shadow: 0 0 0 4px rgba(61, 52, 104, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Se quiser deixar responsivo para celular */
+@media (max-width: 400px) {
+  .otp-container {
+    gap: 8px;
+  }
+  .otp-field {
+    width: 40px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

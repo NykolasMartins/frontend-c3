@@ -1,0 +1,314 @@
+.labelDP{
+    font-size: 16px;
+    font-weight: 550;
+    color: #615110;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/* No seu arquivo CSS global ou do componente */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+.react-datepicker__input-container input {
+    width: 100%;
+    color: #615110;
+    display: block;
+    padding: 16px 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 30px;
+    border: 2.2px solid #8b9aa7;
+    background: #FFFBF3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.react-datepicker__input-container input:focus{
+    border-color: #515a61;
+    outline: none;
+    box-shadow: 0 0 5px rgba(138, 154, 167, 0.2);
+}
+
+/* Remove o comportamento 'inline' que cria o espaço extra */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: block;
+  width: 100%; /* Garante que o input ocupe todo o espaço disponível */
+}
+
+
+
+/* =========================================
+   TEMA DATEPICKER - C3 (Roxo #3D3468)
+   Fonte: Montserrat
+   ========================================= */
+
+/* 1. CORREÇÃO DO ESPAÇO FANTASMA (Layout) */
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  display: block !important;
+  width: 100% !important;
+}
+
+/* 2. O CONTAINER PRINCIPAL (A caixa flutuante) */
+.react-datepicker {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 0.9rem !important;
+  background-color: #ffffff !important;
+  border: none !important;
+  border-radius: 16px !important; /* Bordas bem arredondadas */
+  box-shadow: 0 10px 40px rgba(61, 52, 104, 0.2) !important; /* Sombra roxa suave */
+  padding: 10px !important;
+}
+
+/* 3. O CABEÇALHO (Onde fica o Mês e Ano) */
+.react-datepicker__header {
+  background-color: #ffffff !important; /* Fundo branco limpo */
+  border-bottom: 1px solid #f0f0f0 !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding-bottom: 15px !important;
+}
+
+/* Título do Mês (Janeiro 2026) */
+.react-datepicker__current-month {
+  color: #3D3468 !important; /* Roxo C3 */
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+/* Dias da Semana (Seg, Ter...) */
+.react-datepicker__day-name {
+  color: #a0aec0 !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  font-size: 0.75rem !important;
+  
+  /* --- A CORREÇÃO ESTÁ AQUI EMBAIXO --- */
+  /* Tem que ter EXATAMENTE o mesmo tamanho e margem do .react-datepicker__day */
+  width: 2.2rem !important; 
+  margin: 5px !important;
+  display: inline-block !important; /* Garante que respeita a largura */
+  text-align: center !important;
+}
+
+/* 4. OS DIAS (Números) */
+.react-datepicker__day {
+  color: #4a5568 !important; /* Texto escuro suave */
+  font-weight: 500 !important;
+  width: 2.2rem !important;
+  line-height: 2.2rem !important;
+  margin: 5px !important;
+  border-radius: 12px !important; /* Formato "Squircle" (Quadrado arredondado) */
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Hover (Passar o mouse) */
+.react-datepicker__day:hover {
+  background-color: #ede9fe !important; /* Um roxo bem clarinho */
+  color: #3D3468 !important;
+  transform: scale(1.1);
+}
+
+/* 5. O DIA SELECIONADO (O Principal) */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: #3D3468 !important; /* Roxo C3 */
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 15px rgba(61, 52, 104, 0.4) !important; /* Brilho roxo */
+}
+
+/* Dia de Hoje (Destaque sutil se não estiver selecionado) */
+.react-datepicker__day--today {
+  border: 1px solid #3D3468 !important;
+  font-weight: 700 !important;
+  color: #3D3468 !important;
+  background-color: transparent;
+}
+
+/* Se o dia de hoje for o selecionado, mantém o estilo de selecionado */
+.react-datepicker__day--today.react-datepicker__day--selected {
+  background-color: #3D3468 !important;
+  color: white !important;
+}
+
+/* 6. NAVEGAÇÃO (Setinhas < >) */
+.react-datepicker__navigation {
+  top: 18px !important; /* Ajuste de altura */
+}
+
+/* Ícone da seta */
+.react-datepicker__navigation-icon::before {
+  border-color: #3D3468 !important; /* Setas Roxas */
+  border-width: 2px 2px 0 0 !important;
+  height: 8px !important;
+  width: 8px !important;
+}
+
+/* 7. REMOVER O TRIÂNGULO FEIO EM CIMA DO CALENDÁRIO */
+.react-datepicker__triangle {
+  display: none !important;
+}
+
+/* 8. ANIMAÇÃO DE ENTRADA (Opcional - Fica chique) */
+.react-datepicker-popper {
+  z-index: 9999 !important; 
+  /* Remova a animation daqui */
+}
+
+/* Adicione a animação DIRETAMENTE na classe do calendário */
+.react-datepicker {
+  animation: fadeInDatePicker 0.3s ease-out;
+  transform-origin: top center; /* Garante que o zoom saia de cima */
+}
+
+@keyframes fadeInDatePicker {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+
+
+/* =========================================
+   ESTILO DOS DROPDOWNS (Mês e Ano)
+   ========================================= */
+
+/* 1. O container que segura os selects */
+.react-datepicker__header__dropdown {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espaço entre o select de mês e ano */
+}
+
+/* 2. O Estilo dos Selects em si */
+/* =========================================
+   CORREÇÃO DOS SELECTS (Mês e Ano)
+   ========================================= */
+
+.react-datepicker__year-select,
+.react-datepicker__month-select {
+  /* 1. RESETAR APARECÊNCIA NATIVA */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  /* 2. CORES E BORDAS */
+  background-color: #f8f9fa;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  color: #3D3468;
+  
+  /* 3. FONTE */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+  /* 4. ESPAÇAMENTO INTELIGENTE (O Segredo está aqui) */
+  /* padding: Cima | Direita (Maior p/ seta) | Baixo | Esquerda */
+  padding: 8px 35px 8px 12px !important;
+  margin: 0 5px;
+  
+  /* 5. A SETINHA CUSTOMIZADA */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%233D3468' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  
+  /* Posição da seta: 8px da borda direita, centralizada verticalmente */
+  background-position: right 8px center;
+  background-size: 16px; /* Tamanho da seta */
+  
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hover para ficar bonitinho */
+.react-datepicker__year-select:hover,
+.react-datepicker__month-select:hover {
+  border-color: #3D3468;
+  background-color: #ffffff;
+}
+
+.react-datepicker__year-select:focus,
+.react-datepicker__month-select:focus {
+  border-color: #3D3468;
+  box-shadow: 0 0 0 3px rgba(61, 52, 104, 0.1); /* Brilho suave roxo */
+}
+
+/* Ajuste específico para o Select de Mês ficar um pouco maior se precisar */
+.react-datepicker__month-select {
+  margin-right: 5px;
+}
+
+
+/* Garante que o texto fique branco TANTO no selecionado QUANTO no foco inicial */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #3D3468 !important; /* Roxo C3 */
+  color: #ffffff !important; /* Texto Branco */
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+}
+
+/* Remove o quadrado cinza estranho que fica ao redor do foco inicial */
+.react-datepicker__day:focus {
+  outline: none !important;
+}
+
+
+/* Esconde o título de texto padrão para sobrar só os Selects */
+.react-datepicker__header {
+  padding-top: 15px !important; /* Dá um ar para os selects */
+}
+
+.react-datepicker__current-month {
+  display: none !important; /* Some com o texto "Janeiro 2026" duplicado */
+}
+
+
+
+/* Container dos Selects */
+.react-datepicker__header__dropdown {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important; /* Espaço entre Mês e Ano */
+  margin: 0px 0 15px 0 !important; /* Espaço para baixo antes dos dias */
+}
+
+/* Ajuste fino na posição das setas de navegação (< >) para não bater nos selects */
+.react-datepicker__navigation {
+  top: 15px !important; /* Alinha as setas com a altura dos selects */
+}
+
+
+/* Estilo para dias bloqueados/desabilitados (Futuro) */
+.react-datepicker__day--disabled {
+  color: #ccc !important; /* Texto cinza claro */
+  cursor: not-allowed !important; /* Mouse com sinal de proibido */
+  background-color: transparent !important;
+}
+
+.react-datepicker__day--disabled:hover {
+  background-color: transparent !important; /* Remove qualquer cor de fundo no hover */
+  transform: none !important; /* Remove o efeito de zoom */
+  color: #ccc !important;
+}

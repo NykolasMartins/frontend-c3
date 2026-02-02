@@ -1,0 +1,320 @@
+@keyframes surgirMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.navSubItem li {
+  opacity: 0;
+  animation: surgirMenu 0.3s ease-out forwards;
+}
+
+
+.navSubItem a:nth-child(1) li { animation-delay: 0.1s; }
+.navSubItem a:nth-child(2) li { animation-delay: 0.2s; }
+.navSubItem a:nth-child(3) li { animation-delay: 0.3s; }
+.navSubItem a:nth-child(4) li { animation-delay: 0.4s; }
+.navSubItem a:nth-child(5) li { animation-delay: 0.5s; }
+
+
+
+
+.lupa{
+    cursor: pointer;
+}
+
+.cadastroP {
+    transition: .3s;
+}
+
+.cadastroP:hover{
+    transform: scale(1.05);
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+}
+
+.mudarPesquisa{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #3D3468;
+    align-items: center;
+    height: fit-content;
+    padding: 0px 101px;
+}
+
+.topoHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    gap: 20px;
+    padding: 14px 0px;
+    width: 100%;
+}
+
+.logoPesquisa{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 40px;
+}
+
+.pesquisa{
+    width: 50%;
+    display: flex;
+    padding: 9px 15px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    border: 2px solid hsla(209, 38%, 89%, 0.5);
+    transition: .5s;
+}
+
+.pesquisa:hover{
+    border: 2px solid #D9E4EE;
+}
+
+.pesquisa:focus-within{
+    border: 2px solid #D9E4EE;
+    background-color: #5B5382;
+}
+
+.pesquisa input{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #D9E4EE;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    width: 100%;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+}
+
+#pesquisaAlt{
+    display: none;
+    width: 80%;
+}
+
+
+.divisor {
+    width: 2px;            
+    height: 20px;            
+    background-color: hsla(209, 38%, 89%, 0.3); 
+    margin: 0 5px;     
+    border-radius: 1px;
+}
+
+.pesquisa:focus-within .divisor {
+    background-color: #D9E4EE;
+}
+
+.loginCadastro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.entrarBtn{
+    display: flex;
+    width: 107px;
+    height: 36px;
+    height: fit-content;
+    padding: 10px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    background: #D9E4EE;
+    transition: .3s;
+}
+
+.entrarBtn:hover{
+    transform: scale(1.05);
+}
+
+.entrarBtn p{
+    font-weight: 700 !important;
+    color: #3D3468;
+}
+
+.criarBtn{
+    display: flex;
+    height: 44px;
+    padding: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #D9E4EE;
+    color: #D9E4EE;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.criarBtn p{
+    transition: .3s;
+    font-weight: 610;
+}
+
+.criarBtn:hover{
+    background-color: #D9E4EE;
+    color: #3D3468;
+}
+
+.criarBtn:hover p{
+    color: #3D3468;
+}
+
+.navHeader{
+    display: flex;
+    padding: 12px 180px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    background: #5B5382;
+    list-style: none;
+
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 50px;
+    z-index: 2;
+}
+
+.navHeader.media{
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    gap: 30px;
+    padding: 20px 15px;
+}
+
+.navSubItem{
+    display: flex;
+    padding: 12px 220px;
+    width: 100%;
+    height: fit-content;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    background: #b5addb;
+    list-style: none;
+    gap: 50px;
+    position: absolute;
+    top: 38px;
+    z-index: 1;
+
+    animation: surgirMenu 0.2s ease-out;
+}
+
+.navSubItem li{
+    color: #3D3468;
+    text-align: center;
+    transition: .3s;
+}
+
+.navSubItem li:hover {
+    color: #5b518e;
+}
+
+nav li{
+    color: #D9E4EE;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+}
+
+.navHeader li::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0); /* Começa com tamanho 0 (invisível) */
+  height: 2px; /* Espessura da linha */
+  bottom: 0;
+  left: 0;
+  background-color: #D4AF37; /* Dourado C3 (ou Roxo) */
+  transform-origin: bottom right; /* Ponto de origem */
+  transition: transform 0.25s ease-out; /* Velocidade */
+}
+
+.navHeader li:hover::after {
+  transform: scaleX(1); /* Cresce para tamanho 100% */
+  transform-origin: bottom left;
+}
+
+
+@media (max-width: 1024px){
+    .mudarPesquisa {
+        padding: 0px 40px; /* Reduzi um pouco mais o padding lateral */
+    }
+    .navHeader {
+        padding: 12px 50px;
+    }
+    .navSubItem{
+        padding: 12px 70px;
+    }
+    .navSubItem li{
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 768px){
+    .pesquisa{
+        display: none;
+    }
+
+    #pesquisaAlt{
+        display: flex;
+    }
+
+    .menuPesquisa{
+        display: flex;
+        width: 100%;
+        height: fit-content;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .barras{
+        display: flex;
+        font-size: 24px;
+        color: #D9E4EE;
+        margin-left: 15px;
+    }
+
+    .navHeader.full-width{
+        display: none;
+    }
+    
+}
+
+@media (max-width: 480px){
+    .mudarPesquisa{
+        padding: 0px 15px;
+    }
+    .navHeader{
+        padding: 12px 15px;
+    }
+    .entrarBtn{
+        padding: 10px 7px;
+    }
+}

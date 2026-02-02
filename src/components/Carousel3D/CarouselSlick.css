@@ -1,0 +1,102 @@
+/* Container que segura o carrossel */
+.carousel-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0;
+  position: relative;
+}
+
+/* --- O QUADRADO (Base Visual) --- */
+.slide-content {
+  /* Tamanho e Posição */
+  width: 100%;
+  max-width: 286px;
+  aspect-ratio: 1 / 1; /* Quadrado Perfeito */
+  margin: 0 auto; /* Centraliza no slide */
+  
+  /* Flexbox para centralizar a imagem dentro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Estado padrão (Inativo/Lateral) */
+  transform: scale(0.7); /* Pequeno */
+  opacity: 0.5;          /* Meio apagado */
+  transition: all 300ms ease; /* Animação suave do zoom */
+  
+  /* IMPORTANTE PARA A BORDA GIRAR: */
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden; /* Corta o excesso do giro */
+  z-index: 1;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  
+  /* ATENÇÃO: Removi o "border: 8px solid" aqui pois ele bloqueia o efeito.
+     A grossura da borda agora é controlada no ::after abaixo (inset: 8px) */
+}
+
+/* Imagem dentro do quadrado */
+.slide-content img {
+  position: relative;
+  z-index: 2; /* Garante que a imagem fique acima do fundo branco */
+  max-width: 80%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+/* --- ESTADO ATIVO (O item do meio) --- */
+/* O Slick adiciona a classe .slick-center automaticamente */
+.slick-center .slide-content {
+  transform: scale(0.9); /* Tamanho normal (Zoom in) */
+  opacity: 1;            /* Totalmente visível */
+  z-index: 10;
+}
+
+/* Efeito Hover no item do meio */
+.slick-center .slide-content:hover {
+  transform: scale(1.00);
+}
+
+
+/* --- A MÁGICA DA BORDA GIRATÓRIA --- */
+
+.slide-content::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  width: 250%; 
+  height: 250%;
+  left: -75%;
+  top: -75%;
+  opacity: .5;
+  
+  /* MUDANÇA AQUI: Sem os "degs" (ângulos) fixos. 
+     E repetimos a primeira cor no final para o loop ser perfeito */
+    background: conic-gradient(
+    var(--css1, #2F6EB5) 0deg 120deg,   /* Azul ocupa um bom pedaço sólido */
+    var(--css2, #FF0000) 180deg 300deg, /* Vermelho ocupa um pedaço sólido longe do azul */
+    var(--css1, #2F6EB5) 340deg 360deg  /* Volta pro azul */
+  );
+  animation: girar 4s linear infinite;
+}
+
+/* 2. O Miolo Branco (::after) - Isso cria a ilusão da borda */
+.slide-content::after {
+  content: '';
+  position: absolute;
+  z-index: -1; /* Fica entre a imagem e o fundo que gira */
+  
+  /* ISSO DEFINE A GROSSURA DA BORDA */
+  /* Como você usava border: 8px, aqui usamos inset: 8px */
+  inset: 8px; 
+  
+  background: #FFF; /* Cor de fundo do card (Branco) */
+  border-radius: 14px; /* Um pouco menos que os 20px do pai para encaixar */
+}
+
+/* Definição da Animação */
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
