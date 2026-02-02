@@ -175,7 +175,7 @@ function Cadastro() {
 
       try{
         const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-        const response = await axios.post(`${API_URL}3000/auth/cadastro`, dadosCompletos)
+        const response = await axios.post(`${API_URL}/auth/cadastro`, dadosCompletos)
         if(response.data.status === "sucesso"){
           toast.success("Cadastro realizado com sucesso!");
           navigate("/login")
