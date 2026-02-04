@@ -12,7 +12,8 @@ import NovaSenha from './pages/NovaSenha/NovaSenha';
 import Home from './pages/Home/Home';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ProdutoCard from './components/ProdutoCard/ProdutoCard';
+import PaginaTeste from './pages/paginaTeste/paginaTeste';
+import CriarPostagem from './pages/CriarPostagem/CriarPostagem';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -85,16 +86,8 @@ function App() {
           <Route path="/cadastro-produto" element={<CadastroProduto />} />
           <Route path='/esqueceu-senha/enviar-codigo' element={<EnviarCodigo />} />
           <Route path='/esqueceu-senha/nova-senha' element={<NovaSenha />} />
-          <Route path='/testeProduto' element={
-    <>
-    <div style={{display: 'flex', width: '90%', justifyContent: 'space-between'}}>
-      {Array.from({ length: 5 }).map((_, index) => (
-        <ProdutoCard key={index} />
-      ))}
-      </div>
-    </>
-  } />
-
+          <Route path='/testeProduto' element={<PaginaTeste />} />
+          <Route path='/criar-postagem' element={<CriarPostagem />} />
         </Routes>
       </main>
 

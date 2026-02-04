@@ -1,0 +1,87 @@
+/* ... resto do CSS ... */
+
+.carousel-produto-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 20px 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+
+    border-radius: 12px;
+    border: 2px solid #D1DCE5;
+}
+
+/* O SWIPER (Container) */
+.mySwiper {
+    width: 1360px;
+    padding: 20px 40px 50px 40px !important;
+}
+
+/* O SLIDE (A CAIXA QUE O SWIPER CONTROLA) */
+.mySwiper .swiper-slide {
+    /* ❌ REMOVA ISSO: width: 280px !important; */
+    
+    /* ✅ USE ISSO: */
+    width: auto !important; /* Deixe o Swiper calcular a largura */
+    height: auto;
+    
+    display: flex;
+    justify-content: center; /* Centraliza o card dentro do espaço do slide */
+}
+
+
+
+.carousel-produto-title{
+    color: #655D41;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.carousel-produto-subtitle{
+    color: #655D41;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+/* Posicionamento Absoluto para ficar em cima do carrossel */
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    z-index: 10; /* Fica por cima dos cards */
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: #655D41;
+    transition: all .3s;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left {
+    left: 60px; /* Canto esquerdo */
+}
+
+.arrow-right {
+    right: 60px; /* Canto direito */
+}
+
+/* Esconde o botão se não tiver mais itens pra aquele lado */
+.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}

@@ -1,0 +1,70 @@
+.modal-overlay {
+  position: fixed; /* Fixa na tela, mesmo se rolar a página */
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;    /* 100% da largura da janela */
+  height: 100vh;   /* 100% da altura da janela */
+
+  gap: 30px;
+
+  height: 100dvh;
+  
+  background-color: rgba(0, 0, 0, 0.6); /* Preto com 60% de opacidade */
+  z-index: 1000;   /* Garante que fique na frente de TUDO no site */
+  
+  /* Centraliza a modal no meio da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Opcional: Efeito de desfoque (vidro fosco) */
+  backdrop-filter: blur(3px); 
+}
+
+
+
+.ModalSelecionarProduto{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 70%;
+    height: 85%;
+    padding: 20px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 25px;
+    border: 2px solid #8A9AA7;
+    background: #FFF;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+    z-index: 1;
+    top: auto;
+
+    overflow-y: scroll;
+
+    
+}
+
+.container-grid{
+    width: 100%;
+
+    row-gap: 20px;
+    gap: auto;
+
+    display: grid;
+    /* --- A MÁGICA ESTÁ AQUI --- */
+    /* Traduzindo: "Encha a linha (auto-fill) com colunas que tenham 
+       no MÍNIMO 250px e no MÁXIMO 1 fração do espaço restante (1fr)" 
+    */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+
+/* Garante que o card não cresça mais que a celula do grid */
+.grid-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

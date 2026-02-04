@@ -21,9 +21,10 @@ registerLocale('pt-BR', ptBR);
 
 // Importe o Controller do hook form
 import { Controller } from "react-hook-form";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import DropzoneInput from '../../components/DropzoneInput/DropzoneInput'
+import { useNavigate } from "react-router-dom";
 
 
 interface OptionType {
@@ -104,55 +105,77 @@ function CadastroProduto() {
         return [];
         }, [categoria])
 
+        const navigate = useNavigate();
+        useEffect(()=>{
+                if(localStorage.getItem("token") === null){
+                    navigate("/login")
+                    toast.warning("Faça login para ter acesso a essa página!")
+                }
+            }, [navigate])
+
 
 
     const onSubmit = async (data: FormSchema) => {
-    const dataFormatada = data.data_lancamento ? format(data.data_lancamento, 'yyyy-MM-dd') : '';
-    
-    // 1. Crie o objeto FormData
-    const formData = new FormData();
+        const dataFormatada = data.data_lancamento ? format(data.data_lancamento, 'yyyy-MM-dd') : '';
+        
+        // 1. Crie o objeto FormData
+        const formData = new FormData();
 
-    // 2. Adicione os campos de texto manualmente
-    formData.append('nome_produto', data.nome_produto);
-    formData.append('nome_edicao', data.nome_edicao);
-    formData.append('descricao_produto', data.descricao_produto);
-    formData.append('estado_produto', estado?.value || '');
-    formData.append('categoria_produto', categoria?.value || '');
-    formData.append('franquia_produto', franquia?.value || '');
-    formData.append('data_lancamento', dataFormatada);
+        // 2. Adicione os campos de texto manualmente
+        formData.append('nome_produto', data.nome_produto);
+        formData.append('nome_edicao', data.nome_edicao);
+        formData.append('descricao_produto', data.descricao_produto);
+        formData.append('estado_produto', estado?.value || '');
+        formData.append('categoria_produto', categoria?.value || '');
+        formData.append('franquia_produto', franquia?.value || '');
+        formData.append('data_lancamento', dataFormatada);
 
-    // 3. Adicione os arquivos (o nome 'files' deve bater com o esperado no Multer do backend)
-    if (data.files && data.files.length > 0) {
-        data.files.forEach((file) => {
-            formData.append('fotos', file); 
-        });
-    }
-
-    try{
-        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-      const response = await axios.post(`${API_URL}/produtos/`, formData, {
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        // 3. Adicione os arquivos (o nome 'files' deve bater com o esperado no Multer do backend)
+        if (data.files && data.files.length > 0) {
+            data.files.forEach((file) => {
+                formData.append('fotos', file); 
+            });
         }
-      })
-      const result = response.data
-      console.log(result)
-      if (result.status == "sucesso"){
-        toast.success("Item Cadastrado com Sucesso!");
-      }
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch(error: any){
-      if (error.response) {
-        console.log("Status:", error.response.status); 
-        console.log("Mensagem do Backend:", error.response.data);
-    } else {
-        console.log("Erro de conexão:", error.message);
-        toast.error("Sem conexão com o servidor.");
-    }
-    }
+        try{
+            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const response = await axios.post(`${API_URL}/produtos/`, formData, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            }
+        })
+        const result = response.data
+        console.log(result)
+        if (result.status == "sucesso"){
+            toast.success("Item Cadastrado com Sucesso!");
+        }
 
-    console.log("Dados enviados:", formData);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        } catch(error: any){
+        if (error.response) {
+            console.log("Status:", error.response.status); 
+            console.log("Mensagem do Backend:", error.response.data);
+        } else {
+            console.log("Erro de conexão:", error.message);
+            toast.error("Sem conexão com o servidor.");
+        }
+        }
+
+        console.log("Dados enviados:", formData);
+        setValue("categoria_produto", "")
+        setValue("data_lancamento", null)
+        setValue("descricao_produto", "")
+        setValue("estado_produto", "")
+        setValue("files", [])
+        setValue("franquia_produto", "")
+        setValue("nome_edicao", "")
+        setValue("nome_produto", "")
+
+        setEstado(null)
+        setCategoria(null)
+        setFranquia(null)
+
+        
   };
       
 

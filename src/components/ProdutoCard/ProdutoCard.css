@@ -13,6 +13,13 @@
     border: 3px solid #B0AA90;
     background: #FFF;
     align-self: center;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.ProdutoCard:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .image-wrapper{
