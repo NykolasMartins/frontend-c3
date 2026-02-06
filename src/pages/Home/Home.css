@@ -2,13 +2,14 @@
 
 .Home{
     width: 100%;
+    overflow: hidden;
 }
 
 .homeTitle{
     color: #897E51;
     text-align: center;
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: clamp(18px, 5vw, 40px);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -19,5 +20,70 @@
 }
 
 .logoCompleta{
-  max-width: 357px;  
+  max-width: 357px;
+  width: clamp(150px, 25vw, 357px);
+}
+
+.title-carousel-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 90px;
+    align-items: center;
+}
+
+.title-logo-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.carousel-div {
+    max-width: 800px;  
+    width: 100%;
+    min-height: 300px; 
+    display:block; 
+    overflow: hidden; 
+}  
+
+@media(max-width: 1372px){
+    .title-carousel-wrapper{
+        flex-direction: column !important;
+        padding: 0 40px;
+    }
+
+    .title-logo-wrapper{
+        flex-direction: row;
+    }
+}
+
+
+@media(max-width: 500px){
+    .carousel-div {
+        width: 200%; 
+        min-height: 150px;
+    }
+
+    .title-carousel-wrapper{
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .title-logo-wrapper{
+        width: 100%;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .logoCompleta{
+        /* No mobile, ignoramos o 'vw' e colocamos um tamanho fixo legível */
+        width: 220px; 
+        max-width: 80%; /* Garante que não estoure em telas muito pequenas */
+    }
+
+    .homeTitle{
+        font-size: 26px; 
+        line-height: 1.2;
+    }
 }

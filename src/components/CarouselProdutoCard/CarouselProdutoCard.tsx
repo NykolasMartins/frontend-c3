@@ -33,9 +33,9 @@ function CarouselProdutoCard({titulo, produtos}: CarouselProps){
 
     return(
         <div className="carousel-produto-container">
-            <div style={{width: "100%", display: "flex", justifyContent: "space-between"}}>
+            <div className="title-options-wrapper">
                 <h4 className="carousel-produto-title">{titulo}</h4>
-                <div style={{display: "flex", alignItems: "center", gap: "10px"}}>
+                <div className="h5-seta-wrapper">
                     <h5 className="carousel-produto-subtitle">Mostrar todas opções</h5>
                     <IoIosArrowForward color="#655D41" className="icon" size={36} />
                 </div>
@@ -61,6 +61,11 @@ function CarouselProdutoCard({titulo, produtos}: CarouselProps){
                     }}
 
                     breakpoints={{
+                        0: {
+                            slidesPerView: 'auto', /* Respeita a largura do card */
+                            centeredSlides: true,  /* Fica no meio */
+                            spaceBetween: 15,
+                        },
                     500: { slidesPerView: 2, slidesPerGroup: 2 },
                     768: { slidesPerView: 3, slidesPerGroup: 3 },
                     1024: { slidesPerView: 4, slidesPerGroup: 4 },

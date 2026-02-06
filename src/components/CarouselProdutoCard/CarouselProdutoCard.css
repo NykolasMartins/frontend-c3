@@ -15,8 +15,9 @@
 
 /* O SWIPER (Container) */
 .mySwiper {
-    width: 1360px;
-    padding: 20px 40px 50px 40px !important;
+    width: 100%;
+    padding: 20px 35px 50px 35px !important;
+    max-width: 1350px;
 }
 
 /* O SLIDE (A CAIXA QUE O SWIPER CONTROLA) */
@@ -84,4 +85,64 @@
 .swiper-button-disabled {
     opacity: 0.3;
     cursor: not-allowed;
+}
+
+.h5-seta-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-options-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media (max-width: 1500px){
+    .mySwiper{
+        padding: 20px 5px 50px 5px !important;
+    }
+}
+
+@media (max-width: 1230px){
+    .mySwiper{
+        padding: 20px 7px 50px 7px !important;
+    }
+}
+
+@media (max-width: 975px){
+    .mySwiper{
+        padding: 20px 6px 50px 6px !important;
+    }
+}
+
+@media (max-width: 725px){
+    .mySwiper{
+        padding: 20px 9px 50px 9px !important;
+    }
+}
+
+
+@media (max-width: 500px){
+    .arrow-left {
+        left: 20px; /* Canto esquerdo */
+    }
+
+    .arrow-right {
+        right: 20px; /* Canto direito */
+    }
+
+    .h5-seta-wrapper{
+        gap: 4px;
+    }
+    
+    .carousel-produto-container{
+        padding: 20px 25px;
+    }
+
+    .carousel-produto-subtitle{
+        display: none;
+    }
 }
