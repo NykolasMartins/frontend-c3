@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-p {
+header p {
   color: #d9e4ee;
   margin: 0;
   text-align: center;
@@ -73,6 +73,7 @@ main {
     cursor: pointer;
     transition: .5s;
     margin-bottom: -20px;
+    font-family: Montserrat;
 }
 
 .btnPadrao:hover{

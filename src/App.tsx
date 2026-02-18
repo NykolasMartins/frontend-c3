@@ -12,8 +12,8 @@ import NovaSenha from './pages/NovaSenha/NovaSenha';
 import Home from './pages/Home/Home';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import PaginaTeste from './pages/paginaTeste/paginaTeste';
 import CriarPostagem from './pages/CriarPostagem/CriarPostagem';
+import DetalhesProduto from './pages/DetalhesProduto/DetalhesProduto';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -86,7 +86,7 @@ function App() {
           <Route path="/cadastro-produto" element={<CadastroProduto />} />
           <Route path='/esqueceu-senha/enviar-codigo' element={<EnviarCodigo />} />
           <Route path='/esqueceu-senha/nova-senha' element={<NovaSenha />} />
-          <Route path='/testeProduto' element={<PaginaTeste />} />
+          <Route path='/testeProduto' element={<DetalhesProduto />} />
           <Route path='/criar-postagem' element={<CriarPostagem />} />
         </Routes>
       </main>

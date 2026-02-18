@@ -1,0 +1,354 @@
+.DetalhesProduto{
+    display: flex;
+    gap: 50px;  
+    padding: 0 50px; 
+    width: 100%;
+    height: 100%;
+}
+
+.product-gallery{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 15px;
+    border-radius: 4px;
+    border: 2.2px solid #8A9AA7;
+    background: #F6FBFF;
+    padding: 15px;
+}
+
+.product-gallery .main-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: #DEDBCC;
+    overflow: hidden;
+    max-width: 476px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.product-gallery .secondary-images{
+    display: flex;
+    width: 100%;
+    gap: 18.8px;
+    height: 105px;
+}
+
+.product-gallery .secondary-images .image{
+    display: flex;
+    height: 100%;
+    width: auto;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.product-gallery img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+.product-details{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.product-header{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title-subtitle-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.title-subtitle-wrapper .title{
+    color: #3D3468;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.title-subtitle-wrapper .subtitle{
+    color: #4E447C;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.description p{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.trade-wishlist{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.trade-wishlist h3{
+    color: #3D3468;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.wishlist-container{
+    display: flex;
+    width: 100%;
+    padding: 15px 10px 15px 25px;
+    align-items: flex-start;
+    gap: 5px;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 2.2px solid #8A9AA7;
+}
+
+.wishlist-container li{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.btn-wrapper{
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    justify-content: space-between;
+    height: 51px;
+}
+
+.btn-wrapper .btnPadrao {
+    width: auto !important;
+    flex: 1;
+}
+
+.btn-wrapper .btnPadrao:hover {
+    transform: scale(1.03);
+}
+
+.btn-favorite {
+    display: flex;
+    aspect-ratio: 1/1;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 2.2px solid #8A9AA7;
+    background: #FFFBF3;
+    cursor: pointer;
+    transition: .5s;
+  }
+
+  .btn-favorite:hover{
+    border-color: rgba(0, 0, 0, 0.7);
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+  
+
+.advertiser-info{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.advertiser-meta{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.advertiser-location{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: fit-content;
+    padding: 15px 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    border: 2px solid #8A9AA7;
+}
+
+.advertiser-location p{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.cat-fra-est-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 100%;
+}
+
+.cat-fra-est-wrapper p{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.cat-fra-est-wrapper p strong{
+    font-weight: 700;
+}  
+
+
+.advertiser-title{
+    align-self: center;
+}
+
+.advertiser-review{
+    display: flex;
+    height: fit-content;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 4px;
+    border: 2.2px solid #8A9AA7;
+    gap: 20px;
+}
+
+.advertiser-title{
+    color: #3D3468;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.advertiser-area{
+    display: flex;
+    gap: 5px;
+}
+
+.advertiser-area p{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.user-review-overall{
+    display: flex;
+    gap: 5px;
+}
+
+.user-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-wrapper .trade-amount{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.stars{
+    display: flex;
+    gap: 5px;
+}
+
+.user-reviews{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 25px;
+}
+
+.user-reviews-title{
+    color: #3D3468;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-self: center;
+}
+
+.user-reviews .reviewer-user{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.username-stars-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reviewer-user .user-name{
+    color: #6D664A;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 580;
+    line-height: normal;
+}
+
+.separator-line{
+    background-color: #6D664A;
+    height: 2px;
+    width: 100%;
+}
