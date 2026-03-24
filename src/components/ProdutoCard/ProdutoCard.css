@@ -89,3 +89,19 @@
     justify-content: center;
     align-items: center;
 }
+
+.etiqueta-estado.impecavel{
+    background: #64BA78;
+}
+
+.etiqueta-estado.bom{
+    background: #98c5a2;
+}
+
+.etiqueta-estado.usado{
+    background: #919892;
+}
+
+.etiqueta-estado.danificado{
+    background: #d17b7b;
+}

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { FaXmark } from 'react-icons/fa6';
 
 interface produto{
-    id_produto: string,
+    id_produto: number,
     nm_produto: string,
     nm_franquia: string,
     ds_estado: string,
@@ -54,11 +54,13 @@ function ModalSelecionarProduto({ onSelecionarProduto, onClose }: modalFunction)
                     { produtos.map((item) => (
                         <div className="grid-item" key={item.id_produto} onClick={() => onSelecionarProduto(item)}>
                             <ProdutoCard 
+                                    id={item.id_produto}
                                     titulo={item.nm_produto}
                                     franquia={item.nm_franquia}
                                     edicao="Testezin"
                                     estado={item.ds_estado}
                                     img_url={item.imagem}
+                                    clickable={false}
                             />
                         </div>
                     ))}

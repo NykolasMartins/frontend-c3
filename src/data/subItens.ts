@@ -71,7 +71,7 @@ export const itens: CategoriaItens[] = [
         id: 2,
         title: 'Funko POP',
         link: '/funko-pop',
-        url: 'https://universogeeky.com/cdn/shop/collections/funko-pop_600x600_crop_center.png?v=1702119471',
+        url: 'https://res-console.cloudinary.com/teste-nykolas-proenca-c3/thumbnails/v1/image/upload/v1773589494/cHJvZHV0b3MvbXVhZmYzc240NHZ3MGZidWxpeGw=/preview',
         c1: '#0285FD',
         c2: '#F9AD00',
         subItens: [

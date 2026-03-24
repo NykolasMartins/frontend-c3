@@ -75,6 +75,7 @@ function CarouselProdutoCard({titulo, produtos}: CarouselProps){
                 { produtos.map((item) => (
                     <SwiperSlide>
                         <ProdutoCard 
+                            id={item.id}
                             titulo={item.nome}
                             franquia={item.franquia}
                             edicao="Teste"

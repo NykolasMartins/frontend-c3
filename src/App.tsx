@@ -14,6 +14,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import CriarPostagem from './pages/CriarPostagem/CriarPostagem';
 import DetalhesProduto from './pages/DetalhesProduto/DetalhesProduto';
+import MeusDesejos from './pages/MeusDesejos/MeusDesejos';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -87,7 +88,9 @@ function App() {
           <Route path='/esqueceu-senha/enviar-codigo' element={<EnviarCodigo />} />
           <Route path='/esqueceu-senha/nova-senha' element={<NovaSenha />} />
           <Route path='/testeProduto' element={<DetalhesProduto />} />
+          <Route path='/detalhes-produto/:product_id' element={<DetalhesProduto />} />
           <Route path='/criar-postagem' element={<CriarPostagem />} />
+          <Route path='/meus-desejos' element={<MeusDesejos />} />
         </Routes>
       </main>
 

@@ -74,9 +74,6 @@ function CadastroProduto() {
 
 
 
-   
-
-
     const { 
         register, 
         formState: { errors },
@@ -168,8 +165,10 @@ function CadastroProduto() {
         setValue("estado_produto", "")
         setValue("files", [])
         setValue("franquia_produto", "")
-        setValue("nome_edicao", "")
-        setValue("nome_produto", "")
+        setValue("nome_edicao", ""),
+        setValue("nome_produto", ""),
+
+        lidarComArquivos(null)
 
         setEstado(null)
         setCategoria(null)
@@ -179,10 +178,14 @@ function CadastroProduto() {
   };
       
 
-  const lidarComArquivos = (arquivosRecebidos: File[]) => {
-      console.log("O filho me mandou estes arquivos:", arquivosRecebidos);
-      setValue('files', arquivosRecebidos); // Salva no formulário
-  };
+
+const lidarComArquivos = (arquivosRecebidos: File[] | null) => {
+    const arquivosParaSalvar = arquivosRecebidos ?? [];
+    
+    console.log("Arquivos processados:", arquivosParaSalvar);
+    setValue('files', arquivosParaSalvar); 
+};
+
     
 
 

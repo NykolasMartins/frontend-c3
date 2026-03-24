@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import ProdutoCard from "../../components/ProdutoCard/ProdutoCard";
 
 interface produto{
-    id_produto: string,
+    id_produto: number,
     nm_produto: string,
     nm_franquia: string,
     ds_estado: string,
@@ -103,11 +103,13 @@ function CriarPostagem(){
             <div style={{alignSelf: "flex-start"}}>
 
                 <ProdutoCard
+                    id={produtoEscolhido.id_produto}
                     titulo={produtoEscolhido.nm_produto}
                     franquia={produtoEscolhido.nm_franquia}
                     edicao="Testezin"
                     estado={produtoEscolhido.ds_estado}
                     img_url={produtoEscolhido.imagem}
+                    clickable={false}
                 />
 
             </div>

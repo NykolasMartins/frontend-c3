@@ -125,7 +125,7 @@ function Cadastro() {
         .catch(err => console.error("Erro no CEP:", err));
     }
     
-  }, [cepDigitado, ufOpcoes]); // Roda sempre que o CEP ou a lista de estados mudar
+  }, [cepDigitado]); // Roda sempre que o CEP ou a lista de estados mudar
 
 
 
