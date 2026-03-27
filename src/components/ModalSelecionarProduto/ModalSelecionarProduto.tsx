@@ -57,7 +57,7 @@ function ModalSelecionarProduto({ onSelecionarProduto, onClose }: modalFunction)
                                     id={item.id_produto}
                                     titulo={item.nm_produto}
                                     franquia={item.nm_franquia}
-                                    edicao="Testezin"
+                                    edicao=""
                                     estado={item.ds_estado}
                                     img_url={item.imagem}
                                     clickable={false}
