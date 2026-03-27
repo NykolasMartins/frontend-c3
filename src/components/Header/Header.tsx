@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { itens } from "../../data/subItens.ts"
 import { useState } from 'react';
 import ModalCriar from '../ModalCriar/ModalCriar.tsx';
+import { PiSignOutBold } from "react-icons/pi";
 
 
 
@@ -67,7 +68,13 @@ function Header({isLogged, userName}: headerProps){
                   <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
                     <p style={{fontSize:'16px'}}>@{userName}</p>
                     <FaUserCircle size={36} color='#D9E4EE' />
+
+                    <div style={{cursor:"pointer"}}>
+                    <PiSignOutBold size={28} color='#D9E4EE' onClick={()=>{localStorage.removeItem('token'); window.location.reload();}} />
+                    </div>
                   </div>
+
+                  
 
                 </div>
                 

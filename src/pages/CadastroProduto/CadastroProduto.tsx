@@ -33,16 +33,16 @@ interface OptionType {
 }
 
 const schemaCadastro = z.object({
-  nome_produto: z.string().min(6, "O nome precisa ter pelo menos 6 letras"),
-  nome_edicao: z.string().min(3, "A edição precisa ter pelo menos 3 letras"),
+  nome_produto: z.string().min(6, "O nome precisa ter pelo menos 6 letras").max(25, "O nome pode ter no máximo 25 letras"),
+  nome_edicao: z.string().min(3, "A edição precisa ter pelo menos 3 letras").max(25, "A edição pode ter no máximo 25 letras").optional(),
   data_lancamento: z.date({
       required_error: "Data de nascimento é obrigatória",
       invalid_type_error: "Data inválida",
-  }).nullable(),
+  }).nullable().optional(),
   estado_produto: z.string(),
   categoria_produto: z.string(),
   franquia_produto: z.string(),
-  descricao_produto: z.string().min(20, "A descrição precisa ter pelo menos 10 letras"),
+  descricao_produto: z.string().min(10, "A descrição precisa ter pelo menos 10 letras").max(200, "A descrição pode ter no máximo 200 letras"),
   files: z.array(z.instanceof(File)).max(4, "Você pode enviar no máximo 4 fotos"),
 });
 
@@ -120,7 +120,7 @@ function CadastroProduto() {
 
         // 2. Adicione os campos de texto manualmente
         formData.append('nome_produto', data.nome_produto);
-        formData.append('nome_edicao', data.nome_edicao);
+        formData.append('nome_edicao', data.nome_edicao?.toString() || '');
         formData.append('descricao_produto', data.descricao_produto);
         formData.append('estado_produto', estado?.value || '');
         formData.append('categoria_produto', categoria?.value || '');
@@ -145,6 +145,7 @@ function CadastroProduto() {
         console.log(result)
         if (result.status == "sucesso"){
             toast.success("Item Cadastrado com Sucesso!");
+            navigate("/");
         }
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any

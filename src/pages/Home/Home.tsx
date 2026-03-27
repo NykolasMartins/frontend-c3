@@ -52,7 +52,7 @@ function Home(){
                 zIndex: 10 /* 4. Garante que fique por cima de qualquer fundo */
             }}>
                 <CarouselProdutoCard
-                titulo="Teste"
+                titulo="Geral"
                 produtos={produtos}
                 />
             </div>

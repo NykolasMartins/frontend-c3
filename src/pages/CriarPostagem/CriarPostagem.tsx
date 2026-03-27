@@ -65,11 +65,11 @@ function CriarPostagem(){
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             })
+                console.log("Resposta do servidor:", response.data);
 
-            if(response.data.status === "sucesso"){
                 toast.success("Postagem criada com sucesso!");
                 navigate("/")
-            }
+
         }
         catch(error){
             console.log("Erro ao enviar dados:", error);

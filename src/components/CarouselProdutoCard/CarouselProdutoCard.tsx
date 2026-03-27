@@ -78,7 +78,7 @@ function CarouselProdutoCard({titulo, produtos}: CarouselProps){
                             id={item.id}
                             titulo={item.nome}
                             franquia={item.franquia}
-                            edicao="Teste"
+                            edicao={item.edicao}
                             estado={item.estado}
                             img_url={item.img_url}
                         />
