@@ -100,7 +100,7 @@ function CadastroProduto() {
         }
 
         return [];
-        }, [categoria])
+    }, [categoria])
 
         const navigate = useNavigate();
         useEffect(()=>{
@@ -135,7 +135,7 @@ function CadastroProduto() {
         }
 
         try{
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
         const response = await axios.post(`${API_URL}/produtos/`, formData, {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -145,7 +145,7 @@ function CadastroProduto() {
         console.log(result)
         if (result.status == "sucesso"){
             toast.success("Item Cadastrado com Sucesso!");
-            navigate("/");
+            navigate("/", {state: {produtoCadastrado: true}});
         }
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -166,8 +166,8 @@ function CadastroProduto() {
         setValue("estado_produto", "")
         setValue("files", [])
         setValue("franquia_produto", "")
-        setValue("nome_edicao", ""),
-        setValue("nome_produto", ""),
+        setValue("nome_edicao", "")
+        setValue("nome_produto", "")
 
         lidarComArquivos(null)
 

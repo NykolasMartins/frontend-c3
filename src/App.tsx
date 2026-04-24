@@ -15,6 +15,8 @@ import axios from 'axios';
 import CriarPostagem from './pages/CriarPostagem/CriarPostagem';
 import DetalhesProduto from './pages/DetalhesProduto/DetalhesProduto';
 import MeusDesejos from './pages/MeusDesejos/MeusDesejos';
+import EnviarProposta from './pages/EnviarProposta/EnviarProposta';
+import Chat from './pages/Chat/Chat';
 
 function App() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -91,6 +93,8 @@ function App() {
           <Route path='/detalhes-produto/:product_id' element={<DetalhesProduto />} />
           <Route path='/criar-postagem' element={<CriarPostagem />} />
           <Route path='/meus-desejos' element={<MeusDesejos />} />
+          <Route path='/enviar-proposta' element={<EnviarProposta />} />
+          <Route path='/chat' element={<Chat />} />
         </Routes>
       </main>
 

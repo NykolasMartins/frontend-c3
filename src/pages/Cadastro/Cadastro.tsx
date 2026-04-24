@@ -178,7 +178,7 @@ function Cadastro() {
         const response = await axios.post(`${API_URL}/auth/cadastro`, dadosCompletos)
         if(response.data.status === "sucesso"){
           toast.success("Cadastro realizado com sucesso!");
-          navigate("/login")
+          navigate("/login", {state: {cadastroSucesso: true}})
         }
       }
       catch(error){

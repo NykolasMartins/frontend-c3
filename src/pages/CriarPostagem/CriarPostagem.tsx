@@ -8,15 +8,8 @@ import { Input } from "../../components/Input/Input";
 import ModalSelecionarProduto from "../../components/ModalSelecionarProduto/ModalSelecionarProduto";
 import { useEffect, useState } from "react";
 import ProdutoCard from "../../components/ProdutoCard/ProdutoCard";
+import { type produto } from "../../data/utils";
 
-interface produto{
-    id_produto: number,
-    nm_produto: string,
-    nm_franquia: string,
-    ds_estado: string,
-    imagem: string,
-    ds_produto: string,
-}
 
 const schemaCriarCadastro = z.object({
     descricao_produto: z.string(),
@@ -68,7 +61,7 @@ function CriarPostagem(){
                 console.log("Resposta do servidor:", response.data);
 
                 toast.success("Postagem criada com sucesso!");
-                navigate("/")
+                navigate("/", {state: {postagemCriada: true}})
 
         }
         catch(error){

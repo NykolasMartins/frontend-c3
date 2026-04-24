@@ -46,9 +46,8 @@ function Login() {
       if (result.status == "sucesso"){
         console.log("Logado com Sucesso")
         localStorage.setItem('token', result.token)
-        navigate('/')
+        navigate('/', {state: {loginSucesso: true}})
         window.location.reload()
-        toast.success("Login realizado com sucesso!");
       }
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -86,9 +85,7 @@ function Login() {
         if (resposta.data.registrado === true){
           localStorage.setItem('token', resposta.data.token);
           
-          navigate('/')
-          window.location.reload()
-          toast.success("Bem-vindo de Volta");
+          navigate('/', {state: {loginSucesso: true}})
         }
         else {
         navigate('/cadastro',{

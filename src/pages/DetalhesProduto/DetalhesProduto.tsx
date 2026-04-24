@@ -3,7 +3,7 @@ import "./DetalhesProduto.css"
 import { HiHeart, HiOutlineHeart } from "react-icons/hi2";
 import { FaStar, FaStarHalf } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 
@@ -41,6 +41,7 @@ function DetalhesProduto() {
         categoria: string;
         id_usuario: number;
         lista_imagens: string;
+        idpostagem: number;
         emtroca: string;
         cidade: string;
         uf: string;
@@ -125,8 +126,17 @@ function DetalhesProduto() {
     const desejo = productInfo?.emtroca || ""
 
     const desejo_formatado = desejo.split(",");
+
+    const navigate = useNavigate(); 
+
+    const product = {id: productInfo?.id, id_postagem: productInfo?.idpostagem, nome: productInfo?.produto, franquia: productInfo?.franquia, edicao: productInfo?.edicao, estado: productInfo?.estado, img_url: lista[0]?.link, idpostagem: productInfo?.idpostagem , clickable: false}
+    
     
 
+    const navigateProposta = ()=>{navigate("/enviar-proposta", {state: product})}
+
+    
+    
 
     return(
         <div className="DetalhesProduto">
@@ -181,7 +191,7 @@ function DetalhesProduto() {
                         </div>
 
                         <div className="btn-wrapper" style={{color: "red"}}>
-                            <button className="btnPadrao"><p>Enviar Proposta</p></button>
+                            <button className="btnPadrao" onClick={navigateProposta}><p>Enviar Proposta</p></button>
                             <button className="btn-favorite" onClick={() => setIsFavorited(!isFavorited)}>
                                 { isFavorited ? <HiHeart color="#6D664A" size={32} /> : <HiOutlineHeart  color="#6D664A" size={32}  /> }
                             </button>   

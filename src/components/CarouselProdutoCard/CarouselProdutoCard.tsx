@@ -10,16 +10,8 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import type { Produto } from "../../data/utils";
 
-
-interface Produto {
-    id: number,
-    nome: string,
-    franquia: string,
-    edicao: string,
-    estado: string,
-    img_url: string
-}
 
 interface CarouselProps {
     titulo: string,

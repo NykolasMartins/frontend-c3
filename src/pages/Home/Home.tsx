@@ -4,6 +4,8 @@ import logoCompleta from '../../assets/logoCompleta.png'
 import CarouselProdutoCard from '../../components/CarouselProdutoCard/CarouselProdutoCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useLocation } from "react-router-dom";
+import { toast } from 'sonner';
 
 
 function Home(){
@@ -16,9 +18,9 @@ function Home(){
         const carregarDados = async () => {
             const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
             const response = await axios.get(`${API_URL}/auth/principal`, {
-                headers: {
-                Authorization: `Bearer ${token}`
-                }
+                headers: token ? {
+                    Authorization: `Bearer ${token}`
+                } : {}
             });
             setProdutos(response.data.produtos || [])
             console.log(response.data)
@@ -27,6 +29,42 @@ function Home(){
         carregarDados();
     
     }, [])
+
+    const location = useLocation();
+
+    useEffect(() => {
+
+        if (location.state?.propostaEnviada) {
+            toast.success("Proposta realizada com sucesso!");
+            // Limpa o estado para o toast não aparecer de novo no próximo refresh
+            window.history.replaceState({}, document.title);
+        }
+
+        if (location.state?.loginSucesso) {
+            toast.success("Login realizado com sucesso!");
+            // Limpa o estado para o toast não aparecer de novo no próximo refresh
+            window.history.replaceState({}, document.title);
+        }
+
+        if (location.state?.cadastroSucesso) {
+            toast.success("Cadastro realizado com sucesso!");
+            // Limpa o estado para o toast não aparecer de novo no próximo refresh
+            window.history.replaceState({}, document.title);
+        }
+
+        if (location.state?.produtoCadastrado) {
+            toast.success("Produto cadastrado com sucesso!");
+            // Limpa o estado para o toast não aparecer de novo no próximo refresh
+            window.history.replaceState({}, document.title);
+        }
+
+        if (location.state?.postagemCriada) {
+            toast.success("Postagem criada com sucesso!");
+            // Limpa o estado para o toast não aparecer de novo no próximo refresh
+            window.history.replaceState({}, document.title);
+        }
+
+    }, [location]);
 
 
     return(

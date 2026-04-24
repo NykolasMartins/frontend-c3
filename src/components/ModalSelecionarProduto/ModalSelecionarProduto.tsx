@@ -3,15 +3,7 @@ import './ModalSelecionarProduto.css'
 import ProdutoCard from '../ProdutoCard/ProdutoCard';
 import axios from 'axios';
 import { FaXmark } from 'react-icons/fa6';
-
-interface produto{
-    id_produto: number,
-    nm_produto: string,
-    nm_franquia: string,
-    ds_estado: string,
-    imagem: string,
-    ds_produto: string,
-}
+import type { produto } from '../../data/utils';
 
 interface modalFunction{
     onSelecionarProduto: (item: produto)=> void
@@ -44,7 +36,7 @@ function ModalSelecionarProduto({ onSelecionarProduto, onClose }: modalFunction)
 
     return(
         <div className="modal-overlay" onClick={onClose}>
-            <div className="ModalSelecionarProduto">
+            <div className="ModalSelecionarProduto" onClick={(e) => e.stopPropagation()}>
                 <h2 style={{ color: '#3D3468', marginBottom: '20px' }}>Selecionar Produto</h2>
 
                 <FaXmark size={24} color="#9F8536" style={{position: 'absolute', top: '20px', right: '20px', cursor: 'pointer',}} onClick={onClose} />

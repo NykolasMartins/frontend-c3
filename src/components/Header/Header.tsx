@@ -2,14 +2,12 @@ import LogoC3 from '../../assets/logoC3_Header.png';
 import './Header.css';
 import { FaMagnifyingGlass, FaPlus } from "react-icons/fa6";
 import { FaBars, FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { itens } from "../../data/subItens.ts"
 import { useState } from 'react';
 import ModalCriar from '../ModalCriar/ModalCriar.tsx';
 import { PiSignOutBold } from "react-icons/pi";
-
-
-
+import { IoChatboxEllipsesOutline } from 'react-icons/io5';
 
 
 interface subItem {
@@ -31,6 +29,8 @@ interface headerProps{
 }
 
 function Header({isLogged, userName}: headerProps){
+
+  const navigate = useNavigate();
 
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
   const [activeSubMenu, setActiveSubMenu] = useState<number | null>(null)
@@ -63,6 +63,10 @@ function Header({isLogged, userName}: headerProps){
                   <div className='criarBtn' onClick={()=>{setIsOpen(true)}}>
                     <p>Criar</p>
                     <FaPlus size={24} />
+                  </div>
+
+                  <div className='criarBtn' onClick={()=>{navigate('/chat')}}>
+                    <IoChatboxEllipsesOutline size={24} />
                   </div>
 
                   <div style={{display:'flex', alignItems:'center', gap:'10px'}}>
