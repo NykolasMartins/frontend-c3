@@ -28,7 +28,7 @@ interface Conversa {
 
 // 2. Tipamos a instância do socket
 // Se você quiser ser bem rigoroso, pode passar os eventos para o genérico: Socket<ServerToClientEvents, ClientToServerEvents>
-const socket: Socket = io("http://localhost:3000");
+const socket: Socket = io("https://frontend-c3.vercel.app/");
 
 function Chat() {
     
